@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Student Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar and Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Assignments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Notifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        
+          
+            <div class="col-md-9 main-content">
+                
+                <div class="dashboard-card course-overview">
+                    <h4>Course Overview</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Instructor</th>
+                                <th>Status</th>
+                                <th>Progress</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Web Development</td>
+                                <td>John Doe</td>
+                                <td>Ongoing</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Data Structures</td>
+                                <td>Jane Smith</td>
+                                <td>Ongoing</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Database Systems</td>
+                                <td>Mike Taylor</td>
+                                <td>Completed</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="overall-progress mt-4">
+                        <h4>Overall Progress</h4>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 71%;" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100">71%</div>
+                        </div>
+                    </div>
+                </div>
+                <h4>My Assignments</h4>
+                <div class="dashboard-card assignments">
+                    
+                    <div class="assignment">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20231205165904/web-development-image.webp" alt="Web Development" class="course-image">
+                        <h4>Assignment 1 - Web Development</h4>
+                        <p>Due: 25th Sept</p>
+                    </div>
+                    <div class="assignment">
+                        <img src="https://user-images.githubusercontent.com/104568275/186131673-9ffff84c-21b4-421b-b956-643aa0fa7dbd.png" alt="Data Structures" class="course-image">
+                        <h4>Assignment 2 - Data Structures</h4>
+                        <p>Due: 30th Sept</p>
+                    </div>
+                    <div class="assignment">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYlOGKqHe_bzVRWFrBg2KKdlpNVi7zteEmknJ_jw85b7e_wGK9QAdZ2V5tzEunvsV4TjE&usqp=CAU" alt="Database Systems" class="course-image">
+                        <h4>Assignment 3 - Database Systems</h4>
+                        <p>Due: 2nd Oct</p>
+                    </div>
+                </div>
+                <div class="attendance-chart mt-4">
+        <h4>Student Attendance</h4>
+        <canvas id="attendanceChart" width="700" height="150"></canvas>
+        <div class="marks-chart mt-4">
+            <h4>Student Marks by Assignment</h4>
+            <canvas id="marksChart" width="700" height="100"></canvas>
+        </div>
+    </div>
+
+                <div class="dashboard-card notifications">
+                    <h4>Notifications</h4>
+                    <div class="alert alert-info">You have a new message from your Web Development instructor.</div>
+                    <div class="alert alert-warning">Upcoming deadline: Data Structures Assignment 2 is due soon.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        var ctx = document.getElementById('attendanceChart').getContext('2d');
+    var attendanceChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], // Example labels for weeks or months
+            datasets: [{
+                label: 'Attendance (%)',
+                data: [80, 90, 75, 85], // Example attendance percentages
+                backgroundColor: '#007bff',
+                borderColor: '#0056b3',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            }
+        }
+    });
+    </script>
+    <script>
+        
+
+        // Initialize Marks Line Chart
+        var ctxMarks = document.getElementById('marksChart').getContext('2d');
+        var marksChart = new Chart(ctxMarks, {
+            type: 'line',
+            data: {
+                labels: ['Assignment 1', 'Assignment 2', 'Assignment 3'], // X-axis labels for assignments
+                datasets: [{
+                    label: 'Semester 1',
+                    data: [34, 60, 78,47], // Marks for Semester 1
+                    borderColor: '#007bff',
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    fill: true,
+                    tension: 0.1
+                }, {
+                    label: 'Semester 2',
+                    data: [88, 85, 80,23], // Marks for Semester 2
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.2)',
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
